@@ -1,4 +1,4 @@
-# End to end tests tests on "saucedemo.com" website
+# End to end tests on "saucedemo.com" website
 
 ## Languages used
 
