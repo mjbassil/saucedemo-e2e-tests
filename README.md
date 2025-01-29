@@ -35,3 +35,19 @@ I used a scenario outline to run the same scenario mutliple times with different
 A verification of the error message box is done at the end of all the negative log in test cases.
 
 ### Add item to a cart
+The three scenarios in `add-to-cart.feature` are : 
+- Adding items from homepage and removing them from the cart page
+- Adding and removing one item from inventory item page
+- Verify cart is cleared out after checkout
+
+Many cases are covered to make sure that the display is correct. In the scenario, we make sure that : 
+- The button "Add to cart" dissapears and is replaced by "Remove" when the user clicks on it.
+- The button "Remove" dissapears and is replaced by "Add to cart" when the user clicks on it.
+- I can add to cart any item from the _inventory.html_ page and the _inventory-item.hml_ page.
+- I can remove an item from the cart from the _cart.html_, _inventory.html_, and _inventory-item.html_ pages.
+- The redirection from any page to another is done correctly.
+- I check the persistance of the cart badge when the user navigate through the pages.
+- The cart is emptied once the user checks out.
+- The cart number of item badge is not visible when the cart is empty.
+- The cart badge shows the correct number of items in the cart.
+  
