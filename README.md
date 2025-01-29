@@ -2,16 +2,17 @@
 
 ## Languages used
 
-Typescript
+Typescript  
 Gherkin
 
-## Installing and opening cypress
+## Installations
+### Installing and opening cypress
 Node.js should be installed on your PC.
 To install cypress : https://docs.cypress.io/app/get-started/install-cypress  
 To open the application : https://docs.cypress.io/app/get-started/open-the-app  
 To install typescript : https://docs.cypress.io/app/tooling/typescript-support
 
-## Installing cucumber
+### Installing cucumber
 After installing npm, cypress and typescript run the following command :
 ```
 npm install @bahmutov/cypress-esbuild-preprocessor
@@ -19,9 +20,28 @@ npm install @bahmutov/cypress-esbuild-preprocessor
 ```
 npm install @badeball/cypress-cucumber-preprocessor
 ```
-Make sure to have the same code put in cypress.config.ts
+Make sure to have the same code put in _cypress.config.ts_
+
+## How to run cypress tests
+On the project folder run the command :
+```
+npm install
+```
+### Run a test on cypress 
+
+To run **login.feature** and **add-to-cart.feature** via cypress, run the command :  
+```
+npm run cy:open
+```
+### Test cases JSON report
+To run all test cases and generate a json report in the terminal, run the command :  
+```
+npx cypress run --spec "cypress/e2e/**.feature" 
+```
+![JSON report](/cypress/documentation/JSONReport.png)
 
 ## Test cases covered
+
 ### Log in test cases
 I created a `login.feature` file with for the log in test cases. 
 The covered test cases are : 
@@ -51,8 +71,3 @@ Many cases are covered to make sure that the display is correct. In the scenario
 - The cart is emptied once the user checks out.
 - The cart number of item badge is not visible when the cart is empty.
 - The cart badge shows the correct number of items in the cart.
-  
-## How to run cypress tests
-Add an HTML report
-terminal code to run cypress
-terminal code to run all the featuress
