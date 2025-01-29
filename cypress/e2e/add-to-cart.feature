@@ -29,6 +29,7 @@ Feature: Add products to the cart test cases
     Then the shopping cart badge is visible containing 1
     When I remove item number 3 from the cart
     Then the shopping cart badge is not visible
+    And I log out
 
   Scenario: Adding and removing one item from inventory item page
     Given I am on the log in page
@@ -54,6 +55,7 @@ Feature: Add products to the cart test cases
     And the shopping cart badge is visible containing 1
     When I click on the item number 5 to remove it from the cart
     And the shopping cart badge is not visible
+    And I log out
 
   Scenario: Verify cart is cleared out after checkout
     Given I am on the log in page
@@ -81,3 +83,4 @@ Feature: Add products to the cart test cases
     When I go back to the products page
     Then I'm redirected to the inventory page
     And the shopping cart badge is not visible
+    And I log out

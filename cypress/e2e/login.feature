@@ -50,7 +50,7 @@ Feature: Log in test cases
 
   Scenario: Log in without a username and password
     Given I am on the log in page
-    When I click on the "login-button" button
+    When I click on the login button
     Then an error should appear with the message "Epic sadface: Username is required"
     And the error message box is red
     When I close the error message
