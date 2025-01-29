@@ -1,10 +1,11 @@
 Feature: Log in test cases
 
-  Scenario Outline: Positive user log in
+  Scenario Outline: Nomincal case user log in
     Given I am on the log in page
-    When I type "<username>" in "username"
-    And I type "secret_sauce" in "password"
-    And I click on the "login-button" button
+    And I log in with the following credentials :
+      | key      | value        |
+      | username | <username>   |
+      | password | secret_sauce |
     Then I'm redirected to the inventory page
     And I log out
 
@@ -18,30 +19,33 @@ Feature: Log in test cases
 
   Scenario: Locked out user log in
     Given I am on the log in page
-    When I type "locked_out_user" in "username"
-    And I type "secret_sauce" in "password"
-    And I click on the "login-button" button
+    And I log in with the following credentials :
+      | key      | value           |
+      | username | locked_out_user |
+      | password | secret_sauce    |
     Then an error should appear with the message "Epic sadface: Sorry, this user has been locked out."
     And the error message box is red
-    When I click on the "error-button" button
+    When I close the error message
     Then the error should not exist
 
   Scenario: Log in without a username
     Given I am on the log in page
-    When I type "secret_sauce" in "password"
-    And I click on the "login-button" button
+    And I log in with the following credentials :
+      | key      | value        |
+      | password | secret_sauce |
     Then an error should appear with the message "Epic sadface: Username is required"
     And the error message box is red
-    When I click on the "error-button" button
+    When I close the error message
     Then the error should not exist
 
   Scenario: Log in without a password
     Given I am on the log in page
-    When I type "standard_user" in "username"
-    And I click on the "login-button" button
+    And I log in with the following credentials :
+      | key      | value         |
+      | username | standard_user |
     Then an error should appear with the message "Epic sadface: Password is required"
     And the error message box is red
-    When I click on the "error-button" button
+    When I close the error message
     Then the error should not exist
 
   Scenario: Log in without a username and password
@@ -49,17 +53,18 @@ Feature: Log in test cases
     When I click on the "login-button" button
     Then an error should appear with the message "Epic sadface: Username is required"
     And the error message box is red
-    When I click on the "error-button" button
+    When I close the error message
     Then the error should not exist
 
   Scenario: Invalid username/password
     Given I am on the log in page
-    When I type "<username>" in "username"
-    And I type "<password>" in "password"
-    And I click on the "login-button" button
+    And I log in with the following credentials :
+      | key      | value      |
+      | username | <username> |
+      | password | <password> |
     Then an error should appear with the message "Epic sadface: Username and password do not match any user in this service"
     And the error message box is red
-    When I click on the "error-button" button
+    When I close the error message
     Then the error should not exist
 
     Examples:
