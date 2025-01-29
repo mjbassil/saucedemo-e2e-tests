@@ -46,13 +46,13 @@ Then("the {string} button is visible", (buttonText: string) => {
     cy.contains(buttonText).should("exist").and("be.visible")
 });
 
-When('I click on the item number {int} to add it to the cart', (itemNumber: number) => {
+When("I click on the item number {int} to add it to the cart", (itemNumber: number) => {
     cy.get(`[data-test="inventory-list"] > :nth-child(${itemNumber})`).within(() => {
         cy.contains("Add to cart").click()
     })
 })
 
-When('I click on the item number {int} to remove it from the cart', (itemNumber: number) => {
+When("I click on the item number {int} to remove it from the cart", (itemNumber: number) => {
     cy.get(`[data-test="inventory-list"] > :nth-child(${itemNumber})`).within(() => {
         cy.contains("Remove").click()
     })
@@ -89,19 +89,27 @@ When("I go back to the products page", () => {
 })
 //Redirection
 Then("I'm redirected to the inventory page", () => {
-    cy.url().should('include', '/inventory.html')
+    cy.url().should("include", '/inventory.html')
 });
 
 Then("I'm redirected to the cart page", () => {
-    cy.url().should('include', '/cart.html')
+    cy.url().should("include", '/cart.html')
 });
 
 Then("I'm redirected to the inventory item page", () => {
-    cy.url().should('include', '/inventory-item.html')
+    cy.url().should("include", '/inventory-item.html')
 });
 
+Then("I'm redirected to the checkout step {string} page", (checkoutStep : string) => {
+    cy.url().should("include", `/checkout-step-${checkoutStep}.html`)
+})
+
+Then("I'm redirected to the checkout complete page", () => {
+    cy.url().should("include", "/checkout-complete.html")
+})
+
 // CART
-Then("the shopping cart badge isn't visible", () => {
+Then("the shopping cart badge is not visible", () => {
     cy.get("[data-test='shopping-cart-badge']").should("not.exist")
 });
 
