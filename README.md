@@ -2,10 +2,11 @@
 
 ## Languages used
 
-Cypress
+Typescript
 Gherkin
 
 ## Installing and opening cypress
+Node.js should be installed on your PC.
 To install cypress : https://docs.cypress.io/app/get-started/install-cypress  
 To open the application : https://docs.cypress.io/app/get-started/open-the-app  
 To install typescript : https://docs.cypress.io/app/tooling/typescript-support
@@ -31,8 +32,8 @@ The covered test cases are :
 - Log in without a username and password
 - Invalid username/password 
 
-I used a scenario outline to run the same scenario mutliple times with different users (standard_user, problem_user, etc.)  
-A verification of the error message box is done at the end of all the negative log in test cases.
+I used a scenario outline to run the same scenario multiple times with different users (standard_user, problem_user, etc.)  
+A verification of the error message box is done at the end of all the negative log ins test cases.
 
 ### Add item to a cart
 The three scenarios in `add-to-cart.feature` are : 
@@ -41,13 +42,17 @@ The three scenarios in `add-to-cart.feature` are :
 - Verify cart is cleared out after checkout
 
 Many cases are covered to make sure that the display is correct. In the scenario, we make sure that : 
-- The button "Add to cart" dissapears and is replaced by "Remove" when the user clicks on it.
-- The button "Remove" dissapears and is replaced by "Add to cart" when the user clicks on it.
+- The button "Add to cart" disappears and is replaced by "Remove" when the user clicks on it.
+- The button "Remove" disappears and is replaced by "Add to cart" when the user clicks on it.
 - I can add to cart any item from the _inventory.html_ page and the _inventory-item.hml_ page.
-- I can remove an item from the cart from the _cart.html_, _inventory.html_, and _inventory-item.html_ pages.
+- I can remove an item from the cart from the _cart.html_, _inventory.html_, and _inventory-item.html_ pages. //
 - The redirection from any page to another is done correctly.
-- I check the persistance of the cart badge when the user navigate through the pages.
+- I check the persistance of the cart badge when the user navigates through the pages.
 - The cart is emptied once the user checks out.
 - The cart number of item badge is not visible when the cart is empty.
 - The cart badge shows the correct number of items in the cart.
   
+## How to run cypress tests
+Add an HTML report
+terminal code to run cypress
+terminal code to run all the featuress
