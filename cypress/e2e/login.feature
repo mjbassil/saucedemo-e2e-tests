@@ -1,6 +1,6 @@
 Feature: Log in test cases
 
-  Scenario Outline: Nomincal case user log in
+  Scenario Outline: Nominal case user log in
     Given I am on the log in page
     And I log in with the following credentials :
       | key      | value        |
