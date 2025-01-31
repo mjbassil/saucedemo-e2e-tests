@@ -2,7 +2,7 @@ Feature: Log in test cases
 
   Scenario Outline: Nominal case user log in
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value        |
       | username | <username>   |
       | password | secret_sauce |
@@ -19,7 +19,7 @@ Feature: Log in test cases
 
   Scenario: Locked out user log in
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value           |
       | username | locked_out_user |
       | password | secret_sauce    |
@@ -30,7 +30,7 @@ Feature: Log in test cases
 
   Scenario: Log in without a username
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value        |
       | password | secret_sauce |
     Then an error should appear with the message "Epic sadface: Username is required"
@@ -40,7 +40,7 @@ Feature: Log in test cases
 
   Scenario: Log in without a password
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value         |
       | username | standard_user |
     Then an error should appear with the message "Epic sadface: Password is required"
@@ -56,9 +56,9 @@ Feature: Log in test cases
     When I close the error message
     Then the error should not exist
 
-  Scenario: Invalid username/password
+  Scenario Outline: Invalid username/password
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value      |
       | username | <username> |
       | password | <password> |

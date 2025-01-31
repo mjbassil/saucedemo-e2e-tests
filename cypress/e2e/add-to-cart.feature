@@ -2,7 +2,7 @@ Feature: Add products to the cart test cases
 
   Scenario: Adding items from homepage and removing them from the cart page
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value         |
       | username | standard_user |
       | password | secret_sauce  |
@@ -33,7 +33,7 @@ Feature: Add products to the cart test cases
 
   Scenario: Adding and removing one item from inventory item page
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value         |
       | username | standard_user |
       | password | secret_sauce  |
@@ -47,7 +47,7 @@ Feature: Add products to the cart test cases
     And the "Remove" button is visible
     When I remove the item to the cart
     And the shopping cart badge is not visible
-    * the "Remove" button is not visible anymore
+    And the "Remove" button is not visible anymore
     And the "Add to cart" button is visible
     When I add the item to the cart
     And I go back to the products page
@@ -59,7 +59,7 @@ Feature: Add products to the cart test cases
 
   Scenario: Verify cart is cleared out after checkout
     Given I am on the log in page
-    And I log in with the following credentials :
+    When I log in with the following credentials :
       | key      | value         |
       | username | standard_user |
       | password | secret_sauce  |
