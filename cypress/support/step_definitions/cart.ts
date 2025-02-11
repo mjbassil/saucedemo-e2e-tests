@@ -12,12 +12,6 @@ Then("the shopping cart badge is visible containing {int}", (nbOfItems: number) 
     cy.get("[data-test='shopping-cart-badge']").contains(nbOfItems)
 });
 
-Then("I fill out the checkout form with the following information :", (dataTable: DataTable) => {
-    dataTable.hashes().forEach(elem => {
-        cy.get(`[data-test="${elem.key}"]`).type(elem.value)
-    });
-});
-
 When("I click on the cart icon", () => {
     cy.get("[data-test='shopping-cart-link']").click()
 });
